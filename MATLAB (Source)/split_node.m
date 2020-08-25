@@ -1,4 +1,4 @@
-function [graph c1 c2] = split_node(graph, compind, c, pind, part1, part2, ps)
+function [graph, c1, c2] = split_node(graph, compind, c, pind, part1, part2, ps)
 
 % split node C in component CIND using production PIND and put PART1 and PART2
 %   in the two children
