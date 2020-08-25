@@ -11,8 +11,6 @@ During each iteration, each cluster node is split multiple times, and the
 split that improves the score the most is accepted.
 
 
-
-
 # masterrun.m
 
 > ## Source
@@ -28,8 +26,7 @@ split that improves the score the most is accepted.
 > data sets you want to explore, and the number of times to run each
 > analysis.
 
-Calls runmodel.m.
-
+Calls [runmodel.m](#runmodel.m "Goto runmodel.m")
 
 # runmodel.m
 
@@ -46,12 +43,12 @@ Calls runmodel.m.
 > %   BESTGLLS:  log probabilities of the structures explored along the way 
 > %   BESTGRAPH: structures exploredalong the way
 
-Calls setrunps.m
-Calls scaledata.m
-Calls relgraphinit.m.
-Calls structcounts.m.
+Calls [setrunps.m](#setrunps.m "Goto setrunps.m")
+Calls [scaledata.m](#scaledata.m "Goto scaledata.m")
+Calls [relgraphinit.m](#relgraphinit.m "Goto relgraphinit.m")
+Calls [structcounts.m](#structcounts.m "Goto structcounts.m")
 
-# setrunps.m
+## setrunps.m
 
 > `function [nobjects, ps]=setrunps(data, dind, ps)`
 > 
@@ -131,7 +128,7 @@ Splits a node using graph grammars based on the type of the component.
 Calls combinegraphs.m.
 Unsure what the purpose is.
 
-# combinegraphs.m
+## combinegraphs.m 
 
 > ## Source
 > `function graph = combinegraphs(graph, ps, varargin)`
@@ -152,7 +149,7 @@ Unsure what the purpose is.
 Appears to have something to do with tensor product for graphs. Given 2 graphs, creates a new graph composed of all combinations of each graph's vertices. E.g. (A,B,C) x (1,2,3) = (A1,A2,A3; B1,... C3)
 Unclear why they used the tensor product with the identity matrix. Would only create block matrices along the diagonal.
 
-# structcounts.m
+## structcounts.m
 
 > ## Source
 > `function ps = structcounts(nobjects, ps)`
