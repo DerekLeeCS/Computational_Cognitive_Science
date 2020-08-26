@@ -4,4 +4,4 @@ Kemp, C., & Tenenbaum, J. B. (2008). The Discovery of Structural Form. PNAS.
 https://www.pnas.org/content/pnas/105/31/10687.full.pdf  
 <br>
 This was done as an exercise to better comprehend the code used in the paper, because I found the paper interesting and wanted a better understanding of the algorithms used.  
-Originally was a translation, but I decided against it because I realized it wasn't improving my understanding.
+Originally was a translation from MATLAB to Python, but I decided against it because I realized it wasn't effective at improving my understanding.
