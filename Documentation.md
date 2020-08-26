@@ -9,7 +9,7 @@ Structures are the instances of a specific form. Searching for the best structur
 
 # Algorithm
 
-To find the best structure that explains the data ( maximize P(S, F|D) ), search through every form and find the best structure for each form. The final structure is the best structure overall. 
+To find the best structure that explains the data ( maximizes P(S, F|D) ), search through every form and find the best structure for each form. The final structure is the best structure overall. 
 
 Begin with all entities in a single cluster node and use graph grammars to split 
 entities into multiple cluster nodes.
