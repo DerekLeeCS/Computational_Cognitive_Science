@@ -402,7 +402,8 @@ Calls [makeemptygraph.m](#makeemptygraph.m "Goto makeemptygraph.m")
 Calls optimizebranches (in structurefit.m)
 Calls graphscorenoopt (in structurefit.m)
 Calls [choose_node_split.m](#choose_node_split.m "Goto choose_node_split.m")
-Calls optimizedepth.m (in structurefit.m)
+Calls optimizedepth (in structurefit.m)
+Calls bestsplit (in structurefit.m)
 
 
 ### Source
@@ -414,7 +415,6 @@ Calls [graph_like.m](#graph_like.m "Goto graph_like.m")
 Calls [graph_prior.m](#graph_like.m "Goto graph_prior.m")
 
 ### Source
-
 > % approximate graph score (no integrating out) 
 > `function [ll graph]= graphscorenoopt(graph, data, ps)`
 
@@ -428,7 +428,6 @@ Unsure what this does. The only difference between this function and optimizebra
 Maybe this was supposed to be if/else. That would mean that this function sets a flag to approximate the scores instead of making exact calculations.
 
 ### Source
-
 > `function [lls newgraph]= optimizedepth(graph, depth, lls,  newgraph, data, ps)`  
 > % optimize all splits at DEPTH
 
@@ -436,10 +435,16 @@ Only splits cluster nodes. Does not split object nodes.
 
 Calls optimizebranches (in structurefit.m)
 
+### Source
+> `function [m mi mc mpind]= bestsplit(graph, depth, lls)` 
+> 
+> % find indices of best split at DEPTH
+
+Used for greedy assignment of entities to child nodes.
+
 ## graph_like.m
 
 ### Source
-
 > `function [logI graph] = graph_like(data, graph, ps)`
 > 
 > % graph_like(data, adj, beta, sigma): compute log p(DATA|GRAPH)
