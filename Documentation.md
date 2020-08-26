@@ -1,9 +1,9 @@
 # Terms
-A form is a high-level type of structure. Examples given in the paper are:
+A form is a high-level type of graph. Examples given in the paper are:
 
 > a tree, a ring, a dimensional order, a set of clusters, or some other kind of configuration
 
-Structures are the instances of a specific form. Searching for the best structure means finding the best instance of the form that represents the data. An example given in the paper is:
+A structure is an instance of a specific form. Searching for the best structure means finding the best instance of the form that represents the data. An example given in the paper is:
 
 > Biologists have long agreed that tree structures are useful for organizing living kinds but continue to debate which tree is best—for instance, are crocodiles better grouped with lizards and snakes or with birds (8)?
 
@@ -13,7 +13,7 @@ To find the best structure that explains the data ( maximizes P(S, F|D) ), searc
 
 Begin with all entities in a single cluster node and use graph grammars to split 
 entities into multiple cluster nodes.
-At every split, entities in original cluster node  must be distributed between
+At every split, entities in original cluster node must be distributed between
 the 2 new cluster nodes.
 2 entities are randomly chosen and 1 is placed in each of the new cluster nodes.
 The rest of the entities are selected randomly and placed greedily in a cluster node.
@@ -72,7 +72,7 @@ See file for more detailed description.
 > %   BESTGLLS:  log probabilities of the structures explored along the way 
 > %   BESTGRAPH: structures exploredalong the way
 
-Runs the model, writing the results to a hardcoded directory. The specifics depend on the form being used. 
+Runs the model, writing the results to a hardcoded directory. The specifics depend on the form being tested. 
 
 Calls [setrunps.m](#setrunps.m "Goto setrunps.m")
 Calls [scaledata.m](#scaledata.m "Goto scaledata.m")
@@ -95,7 +95,7 @@ Calls [structurefit.m](#structurefit.m "Goto structurefit.m")
 > 
 > % initialize runps component of ps
 
-Sets parameters for running the model. Based on the type of structure.
+Sets parameters for running the model. Depends on the form being tested.
 
 # scaledata.m
 
@@ -113,7 +113,7 @@ Calls makechunks (in scaledata.m)
 ### Source
 > `function ps = makechunks(data, ps)`
 
-"Chunk" appears to be a term from cognitive psychology. Essentially a class. If correct, function organizes data into classes.
+"Chunk" appears to be a term from cognitive psychology. Essentially a class. If correct, function organizes data into classes. Only used if there is missing data.
 
 Example of a chunk:
 
@@ -380,15 +380,6 @@ Calculates priors for each structure. i represents a specific structure.
  10. cylinder 
 
 Structures 1-8 are calculated in this file. Structures 9 & 10 are calculated in gridpriors.m.
-
-> ## Bug? 
-> Stirling2(n,n) does not result in 1. Only gives 1 when n=1. When n>1, gives an n-by-n matrix. 
-> Should give 1 by definition. 
-> Looks like result may be from Stirling2(1...n, 1...n)
-> 
-> %    S2(N,M) represents the number of distinct partitions of N elements 
-> %    into M nonempty sets.   
-> `s2 = stirling2(maxn,maxn);`
 
 Calls [gridpriors.m](#gridpriors.m "Goto gridpriors.m")
 
