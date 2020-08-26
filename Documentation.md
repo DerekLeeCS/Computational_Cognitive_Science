@@ -37,7 +37,25 @@ split that improves the score the most is accepted.
 > data sets you want to explore, and the number of times to run each
 > analysis.
 
+Calls [setps.m](#setps.m "Goto setps.m")
+Calls [defaultps.m](#defaultps.m "Goto defaultps.m")
 Calls [runmodel.m](#runmodel.m "Goto runmodel.m")
+
+## setps.m
+
+### Source 
+> `function ps = setps()`
+
+Initializes ps. Sets default forms and data to be tested. Also sets the directory to load the data from.
+
+## defaultps.m
+
+### Source
+> `function ps = defaultps(ps)`
+
+Sets default hyperparameters, display parameters, speed parameters, and miscellaneous parameters. 
+Hyperparameters influence calculation of priors. 
+See file for more detailed description.
 
 # runmodel.m
 
@@ -54,7 +72,7 @@ Calls [runmodel.m](#runmodel.m "Goto runmodel.m")
 > %   BESTGLLS:  log probabilities of the structures explored along the way 
 > %   BESTGRAPH: structures exploredalong the way
 
-Displays the "real" structure and the best estimated structure.
+Runs the model, writing the results to a hardcoded directory. The specifics depend on the form being used. 
 
 Calls [setrunps.m](#setrunps.m "Goto setrunps.m")
 Calls [scaledata.m](#scaledata.m "Goto scaledata.m")
@@ -77,7 +95,7 @@ Calls [structurefit.m](#structurefit.m "Goto structurefit.m")
 > 
 > % initialize runps component of ps
 
-Appears to set parameters for running the model. 
+Sets parameters for running the model. Based on the type of structure.
 
 # scaledata.m
 
@@ -335,6 +353,9 @@ Finds number of non-zero values in adjacency matrix and creates a vector from 1 
 
 Appears to have something to do with tensor product for graphs. Given 2 graphs, creates a new graph composed of all combinations of each graph's vertices. E.g. (A,B,C) x (1,2,3) = (A1,A2,A3; B1,... C3)
 Unclear why they used the tensor product with the identity matrix. Would only create block matrices along the diagonal.
+
+Maybe this is for grids and cylinders. Take the direct product with the other "component". 
+A grid is the Cartesian product of 2 chains. A cylinder is the Cartesian product of a ring and a chain.
 
 
 # structcounts.m
